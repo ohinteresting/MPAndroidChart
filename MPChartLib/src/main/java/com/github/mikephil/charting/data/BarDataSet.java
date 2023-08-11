@@ -109,7 +109,11 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
      * @param endColor
      */
     public void setGradientColor(int startColor, int endColor) {
-        mFills.clear();
+        if (mFills == null) {
+            mFills = new ArrayList<>();
+        } else {
+            mFills.clear();
+        }
         mFills.add(new Fill(startColor, endColor));
     }
 
